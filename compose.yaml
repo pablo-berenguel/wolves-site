@@ -1,0 +1,38 @@
+services:
+  web:
+    container_name: wolves-toulouse
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NUXT_PUBLIC_SITE_URL: '${NUXT_PUBLIC_SITE_URL:-http://localhost:3001}'
+        NUXT_PUBLIC_MATOMO_URL: '${NUXT_PUBLIC_MATOMO_URL:-}'
+        NUXT_PUBLIC_MATOMO_SITE_ID: '${NUXT_PUBLIC_MATOMO_SITE_ID:-}'
+    ports:
+      - '127.0.0.1:3001:3000'
+    environment:
+      NUXT_PUBLIC_SITE_URL: '${NUXT_PUBLIC_SITE_URL:-http://localhost:3001}'
+      NUXT_PUBLIC_MATOMO_URL: '${NUXT_PUBLIC_MATOMO_URL:-}'
+      NUXT_PUBLIC_MATOMO_SITE_ID: '${NUXT_PUBLIC_MATOMO_SITE_ID:-}'
+      NUXT_CMS_DATA_DIR: '/data'
+      NUXT_PARTICIPATION_DATA_PATH: '/stats/participations.sqlite'
+      # Optional local bridge. Keep empty unless a development BigBadBot is
+      # running; production always uses a mounted Docker secret instead.
+      NUXT_BIGBADBOT_BRIDGE_URL: '${NUXT_BIGBADBOT_BRIDGE_URL:-}'
+      NUXT_BIGBADBOT_BRIDGE_SECRET: '${NUXT_BIGBADBOT_BRIDGE_SECRET:-}'
+      # Development-only fallbacks so the production image healthcheck can run
+      # locally. Override them in .env to test a real Discord connection.
+      NUXT_SESSION_PASSWORD: '${NUXT_SESSION_PASSWORD:-local-development-session-password-change-me}'
+      NUXT_OAUTH_DISCORD_CLIENT_ID: '${NUXT_OAUTH_DISCORD_CLIENT_ID:-123456789012345678}'
+      NUXT_OAUTH_DISCORD_CLIENT_SECRET: '${NUXT_OAUTH_DISCORD_CLIENT_SECRET:-local-discord-client-secret}'
+      NUXT_OAUTH_DISCORD_REDIRECT_URL: '${NUXT_OAUTH_DISCORD_REDIRECT_URL:-http://localhost:3001/auth/discord}'
+      NUXT_CMS_SUPER_ADMIN_DISCORD_ID: '${NUXT_CMS_SUPER_ADMIN_DISCORD_ID:-123456789012345678}'
+    volumes:
+      - wolves-cms-data:/data
+      # Projection agrégée BigBadBot uniquement. La base brute n'est jamais
+      # montée dans le conteneur web.
+      - ./.data/stats:/stats:ro
+    restart: unless-stopped
+
+volumes:
+  wolves-cms-data:

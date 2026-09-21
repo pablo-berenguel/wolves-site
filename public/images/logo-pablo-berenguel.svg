@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#07131d" />
+  <g transform="translate(25.1 8.32) scale(.074)">
+    <path
+      fill="#3157f6"
+      fill-rule="evenodd"
+      d="M24 0h152a24 24 0 0 1 24 24v152a24 24 0 0 1-24 24H24A24 24 0 0 1 0 176V24A24 24 0 0 1 24 0Zm112 31a31 31 0 1 1 0 62 31 31 0 1 1 0-62Zm0 80a31 31 0 1 1 0 62 31 31 0 1 1 0-62Z"
+    />
+    <path
+      fill="#f2f2ee"
+      fill-rule="evenodd"
+      d="M24 300h152a24 24 0 0 1 24 24v144L35 640H7v-70l83-100H24A24 24 0 0 1 0 446V324a24 24 0 0 1 24-24Zm112 39a31 31 0 1 1 0 62 31 31 0 1 1 0-62Z"
+    />
+  </g>
+</svg>

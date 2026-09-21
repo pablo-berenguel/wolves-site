@@ -1,0 +1,6 @@
+allowBuilds:
+  # v13 ships N-API binaries for linuxmusl/arm64; the implicit node-gyp
+  # fallback is unnecessary and would require a compiler toolchain in Docker.
+  better-sqlite3: false
+  esbuild: true
+  unrs-resolver: true

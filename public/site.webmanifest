@@ -1,0 +1,16 @@
+{
+  "name": "Wolves Toulouse Cheerleading",
+  "short_name": "Wolves",
+  "description": "Club de cheerleading senior à Toulouse.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1238",
+  "theme_color": "#2a3890",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

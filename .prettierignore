@@ -1,0 +1,16 @@
+.nuxt/
+.output/
+.data/
+.nitro/
+dist/
+node_modules/
+.pnpm-store/
+coverage/
+playwright-report/
+test-results/
+pnpm-lock.yaml
+public/images/
+public/videos/
+public/*.png
+public/*.webp
+*.log
